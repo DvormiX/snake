@@ -9,9 +9,6 @@ const levelButton = document.querySelector('.level__button');
 
 
 
-
-
-
 //Карта игры 
 const ground = new Image();
 ground.src = 'img/ground.png';
@@ -37,10 +34,11 @@ snake[0] = {
     y: 10 * box
 };
 
-levelButton.addEventListener('click', levelDirection);
-document.addEventListener('keydown', levelDirection);
 
 let ldir;
+
+levelButton.addEventListener('click', levelDirection);
+document.addEventListener('keydown', levelDirection);
 
 
 //Функция для вывода значение в input
@@ -48,15 +46,36 @@ function levelDirection(event) {
     if (event.keyCode == 13 || 'click') {
         levelInputValue = levelInput.value;
         levelInput.value = '';
+        ldir = levelInputValue;
     }
 
-    if (levelInputValue == 1) {
-        window.location.reload();
-        ldir = setInterval(drawGame, 500);
+    if (ldir == 1) {
+        game == setInterval(drawGame, 400);
+        levelNumber.innerHTML = 1;
+    } else if (ldir == 2) {
+        game == setInterval(drawGame, 300);
+        console.log('2 level');
+        levelNumber.innerHTML = 2;
+    } else if (ldir == 3) {
+        game == setInterval(drawGame, 200);
+        levelNumber.innerHTML = 3;
+    } else if (ldir == 4) {
+        game == setInterval(drawGame, 100);
+        levelNumber.innerHTML = 4;
+    } else if (ldir == 5) {
+        alert('Самоубийца!');
+        game == setInterval(drawGame, 10);
+        levelNumber.innerHTML = 5;
+    } else if (ldir > 5) {
+        alert('Ошибка, такого уровня нет!');
     }
 };
 
-document.addEventListener('keydown', direction);
+
+
+let renderGame =
+
+    document.addEventListener('keydown', direction);
 
 let dir;
 
@@ -86,7 +105,7 @@ function eatTail(head, arr) {
 drawGame = () => {
     ctx.drawImage(ground, 0, 0);
 
-    ctx.drawImage(foodImg, food.x, food.y)
+    ctx.drawImage(foodImg, food.x, food.y);
 
 
     for (let i = 0; i < snake.length; i++) {
@@ -127,10 +146,13 @@ drawGame = () => {
         y: snakeY
     };
 
+
+
     eatTail(newHead, snake);
 
 
     snake.unshift(newHead);
-}
+};
 
-let game = setInterval(drawGame, 100);
+
+let game = setInterval(drawGame, 400);
