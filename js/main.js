@@ -68,14 +68,14 @@ function levelDirection(event) {
         levelNumber.innerHTML = 5;
     } else if (ldir > 5) {
         alert('Ошибка, такого уровня нет!');
+    } else if (ldir == String) {
+        alert('Ошибка, такого уровня нет!');
     }
 };
 
 
 
-let renderGame =
-
-    document.addEventListener('keydown', direction);
+document.addEventListener('keydown', direction);
 
 let dir;
 
@@ -93,7 +93,7 @@ function direction(event) {
 function eatTail(head, arr) {
     for (let i = 0; i < arr.length; i++) {
         if (head.x == arr[i].x && head.y == arr[i].y) {
-            alert('Game Over');
+            score = 'Game Over'
             clearInterval(game);
             window.location.reload();
         }
@@ -131,7 +131,7 @@ drawGame = () => {
     }
 
     if (snakeX < box || snakeX > box * 17 || snakeY > box * 17 || snakeY < 3 * box) {
-        alert('Game Over');
+        score = 'Game Over';
         clearInterval(game);
         window.location.reload();
     }
