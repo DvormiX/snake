@@ -2,9 +2,9 @@ const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 
 
-// const levelNumber = document.querySelector('#level__number');
-// const levelInput = document.querySelector('#level__input');
-// const levelButton = document.querySelector('.level__button');
+const levelNumber = document.querySelector('#level__number');
+const levelInput = document.querySelector('#level__input');
+const levelButton = document.querySelector('.level__button');
 
 
 
@@ -37,24 +37,24 @@ snake[0] = {
     y: 10 * box
 };
 
-// levelButton.addEventListener('click', levelDirection);
-// document.addEventListener('keydown', levelDirection);
+levelButton.addEventListener('click', levelDirection);
+document.addEventListener('keydown', levelDirection);
 
-// let ldir;
+let ldir;
 
 
-// //Функция для вывода значение в input
-// function levelDirection(event) {
-//     if (event.keyCode == 13 || 'click') {
-//         levelInputValue = levelInput.value;
-//         levelInput.value = '';
-//     }
+//Функция для вывода значение в input
+function levelDirection(event) {
+    if (event.keyCode == 13 || 'click') {
+        levelInputValue = levelInput.value;
+        levelInput.value = '';
+    }
 
-//     if (levelInputValue == 1) {
-//         window.location.reload();
-//         ldir = setInterval(drawGame, 500);
-//     }
-// };
+    if (levelInputValue == 1) {
+        window.location.reload();
+        ldir = setInterval(drawGame, 500);
+    }
+};
 
 document.addEventListener('keydown', direction);
 
