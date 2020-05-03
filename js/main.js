@@ -64,7 +64,7 @@ function levelDirection(event) {
         levelNumber.innerHTML = 4;
     } else if (ldir == 5) {
         alert('Самоубийца!');
-        game == setInterval(drawGame, 10);
+        game == setInterval(drawGame, 60);
         levelNumber.innerHTML = 5;
     } else if (ldir > 5) {
         alert('Ошибка, такого уровня нет!');
